@@ -19,9 +19,9 @@
                         <label for="name">{{ __('Name') }}</label>
                     </div>
 
-                    <div class="form-floating mt-4">
-                        <textarea class="form-control" id="description" name="description" placeholder="{{ __('Description') }}" rows="20">{{ old('description', $task->description) }}</textarea>
+                    <div class="mt-4">
                         <label for="description">{{ __('Description') }}</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="{{ __('Description') }}" rows="20">{{ old('description', $task->description) }}</textarea>
                     </div>
                 </div>
 
@@ -36,3 +36,14 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script src="{{ asset('ckeditor5-build-classic/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+        .create(document.getElementById('description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+@endpush
