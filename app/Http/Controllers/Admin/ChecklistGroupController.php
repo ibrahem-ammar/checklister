@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChecklistGroupRequest;
+use App\Http\Requests\UpdateChecklistGroupRequest;
 use App\Models\Admin\ChecklistGroup;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,7 @@ class ChecklistGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreChecklistGroupRequest $request, ChecklistGroup $checklist_group)
+    public function update(UpdateChecklistGroupRequest $request, ChecklistGroup $checklist_group)
     {
         $checklist_group->update([
             'name'  => $request->validated()['name']

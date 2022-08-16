@@ -25,10 +25,14 @@
 
                 <div class="card-body">
 
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('Name') }}" value="{{ old('name', $checklist_group->name) }}">
-                        <label for="name">{{ __('Name') }}</label>
+                    <label class="form-label" for="name">{{ __('Name') }}</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="{{ __('Name') }}" value="{{ old('name', $checklist_group->name) }}">
+
+                    @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
+                    @enderror
                 </div>
 
                 <div class="card-footer">

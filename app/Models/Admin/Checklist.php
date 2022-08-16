@@ -10,7 +10,7 @@ class Checklist extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['checklist_group_id', 'name'];
+    protected $fillable = ['checklist_group_id', 'name', 'checklist_id', 'user_id'];
 
     public function group()
     {

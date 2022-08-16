@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdatePageRequest;
-use App\Models\Admin\Page;
+use App\Models\Admin\Checklist;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.index');
+        //
     }
 
     /**
@@ -46,9 +45,9 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Checklist $checklist)
     {
-        //
+        return view('users.checklists.show', compact('checklist'));
     }
 
     /**
@@ -57,9 +56,9 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
-        return view('admin.pages.edit', compact('page'));
+        //
     }
 
     /**
@@ -69,14 +68,9 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePageRequest $request, Page $page)
+    public function update(Request $request, $id)
     {
-        $page->update([
-            'title' => $request->validated()['title'],
-            'content' => $request->validated()['content'],
-        ]);
-
-        return redirect()->route('dashboard')->with('message', __('Page Updated Successfully'));
+        //
     }
 
     /**
